@@ -1,0 +1,27 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Verify Python
+        run: python --version
+
+      - name: List files
+        run: ls -la
+
+      - name: Success message
+        run: echo "GitHub Actions workflow completed successfully"
